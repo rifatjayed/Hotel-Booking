@@ -9,7 +9,7 @@ import "./Header.css"
 
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css';
-const Header = () => {
+const Header = ({ type }) => {
 
     const [openDate, setOpenDate] = useState(false)
     const [date, setDate] = useState([
@@ -36,8 +36,8 @@ const Header = () => {
         })
     }
     return (
-        <div className='header'>
-            <div className="headerContainer">
+        <div className='header '>
+            <div className={type == "List"? "headerContainer  listMode": "headerContainer"}>
                 <div className='headerList'>
                     <div className='headerListItem active'>
                         <FaBed />
@@ -64,7 +64,12 @@ const Header = () => {
                     </div>
 
                 </div>
-                <h1 className='headerTitle'>A lifetime of discounts? Its Genius</h1>
+              
+          {type !== "List" &&
+  
+          <div>
+            
+                     <h1 className='headerTitle'>A lifetime of discounts? Its Genius</h1>
                 <p className='headerDesc'>Get rewarded for your travels unlock instant savings of 10% or more with a free Lamabooking account</p>
                 <button className='headerBtn'>Sign in/ Register</button>
                 <div className="headerSearch">
@@ -124,10 +129,12 @@ const Header = () => {
                         </div>} 
                     </div>
                     <div className="headerSearchItem">
-                        {/* <FaPerson className='HeaderIcon' /> */}
+                       
                         <button className='headerBtn '>Search</button>
                     </div>
                 </div>
+                </div> }      
+       
             </div>
 
         </div>
