@@ -41,7 +41,7 @@ const Header = ({ type }) => {
     }
 
     const handleSearch =()=>{
-        navigate("/hotels", {state:{}})
+        navigate("/hotels", {state:{destination, date, options}})
     }
     return (
         <div className='header '>
@@ -95,6 +95,7 @@ const Header = ({ type }) => {
                                 moveRangeOnFirstSelection={false}
                                 ranges={date}
                                 className='date'
+                                minDate={new Date()}
                             />
                         }
                     </div>
