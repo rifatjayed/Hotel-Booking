@@ -70,6 +70,11 @@ const List = () => {
           </div>
           <div className="lisResult">
             <SearchItem></SearchItem>
+            <SearchItem></SearchItem>
+            <SearchItem></SearchItem>
+            <SearchItem></SearchItem>
+            <SearchItem></SearchItem>
+            
           </div>
         </div>
       </div>
