@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Hotel.css"
 import Navbar from '../../Components/Navbar/Navbar';
 import Header from '../../Components/Header/Header';
 import { FaLocationDot } from "react-icons/fa6";
@@ -42,6 +43,7 @@ const Hotel = () => {
             <Header type="List"></Header>
             <div className="hotelContainer">
                 <div className="hotelWrapper">
+                    <button className="bookNow">Reserve or Book Now</button>
                     <h1 className="hotelTitle">Grand Hotel</h1>
                     <div className="hotelAddress">
                         <FaLocationDot />
@@ -54,7 +56,7 @@ const Hotel = () => {
                         Book a stay over $114 at this property and get a free airport taxi
 
                     </span>
-            
+
                     <div className="hotelImages">
                         {photos.map((photo, i) => (
                             <div className="hotelImgWrapper" key={i}>
@@ -66,6 +68,24 @@ const Hotel = () => {
                                 />
                             </div>
                         ))}
+                    </div>
+                    <div className="hotelDetails">
+                        <div className="hotelDetailsTexts">
+                            <h1 className="hotelTitle">
+                                Stay in The heart of krakow
+                            </h1>
+                            <p className="hotelDesc">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione recusandae dolore voluptas magnam eos eveniet ullam. Consequatur, natus similique, ab doloremque eos ut voluptates optio reiciendis totam dolorum voluptatibus blanditiis, modi beatae? Eligendi at iste nihil mollitia expedita quos accusantium accusamus adipisci magni ipsa? Ab eaque odio porro quos.
+                            </p>
+                        </div>
+                        <div className="hotelDetailsPrice">
+                            <h1>Perfect for a 9-night stay</h1>
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, exercitationem.</span>
+                            <h2>
+                                <b>$945</b>(9 night)
+                            </h2>
+                            <button>Reserve Or Book Now</button>
+                        </div>
                     </div>
                 </div>
             </div>
