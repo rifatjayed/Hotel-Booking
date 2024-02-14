@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Hotel.css"
 import Navbar from '../../Components/Navbar/Navbar';
 import Header from '../../Components/Header/Header';
 import { FaLocationDot } from "react-icons/fa6";
+import MailList from '../../Components/MailList/MailList';
+import Footer from '../../Components/Footer/Footer';
+import { FaCircleXmark } from "react-icons/fa6";
+import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
 
 
 
@@ -12,8 +16,10 @@ import { FaLocationDot } from "react-icons/fa6";
 const Hotel = () => {
 
 
-
-
+    // const [slideNumber, setSlideNumber] = useState(0);
+    // const [open, setOpen] = useState(false);
+    const [slideNumber, setSlideNumber] = useState(0);
+    const [open, setOpen] = useState(false);
 
     const photos = [
         {
@@ -36,12 +42,47 @@ const Hotel = () => {
         },
     ];
 
+    // const handleOpen = (i) => {
+    //     setSlideNumber(i);
+    //     setOpen(true)
+    // }
+
+    const handleOpen = (i) => {
+        setSlideNumber(i);
+        setOpen(true);
+    };
+
+    const handleMove=(direction)=>{
+let newSliderNumber;
+if(direction ==="l"){
+    newSliderNumber= slideNumber ===0 ? 5 : slideNumber -1;
+
+}
+else{
+    newSliderNumber= slideNumber === 5? 0 : slideNumber + 1;
+}
+setSlideNumber(newSliderNumber)
+    }
 
     return (
         <div>
             <Navbar></Navbar>
             <Header type="List"></Header>
             <div className="hotelContainer">
+              
+
+                {open && (
+                    <div className="slider">
+                       <FaCircleXmark className='close' onClick={()=> setOpen(false)}/>
+                       <FaArrowAltCircleLeft className='arrow' onClick={()=> handleMove("l")}></FaArrowAltCircleLeft>
+                        <div className="sliderWrapper">
+                            <img src={photos[slideNumber].src} alt="" className="sliderImg" />
+                        </div>
+                        
+                         <FaArrowAltCircleRight  className='arrow' onClick={()=> handleMove("r")}/>
+                    </div>
+                )}
+
                 <div className="hotelWrapper">
                     <button className="bookNow">Reserve or Book Now</button>
                     <h1 className="hotelTitle">Grand Hotel</h1>
@@ -61,7 +102,7 @@ const Hotel = () => {
                         {photos.map((photo, i) => (
                             <div className="hotelImgWrapper" key={i}>
                                 <img
-
+                                    onClick={()=>handleOpen(i)}
                                     src={photo.src}
                                     alt=""
                                     className="hotelImg"
@@ -88,6 +129,8 @@ const Hotel = () => {
                         </div>
                     </div>
                 </div>
+                <MailList></MailList>
+                <Footer> </Footer>
             </div>
         </div>
     );
